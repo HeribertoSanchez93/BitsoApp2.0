@@ -23,6 +23,7 @@ class AdapterCurrency (
 
     override fun onBindViewHolder(holder: CurrencyViewHolder, position: Int) {
         holder.bind(getItem(position))
+        //demo
     }
 
     class CurrencyViewHolder(

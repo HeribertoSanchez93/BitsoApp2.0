@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.bitsoapp20.databinding.ListCurrenciesAdapterBinding
 import com.example.bitsoapp20.domain.Currency
+import com.example.bitsoapp20.util.attachedName
 
 typealias OnCurrencyClicked = (String) -> Unit
 
@@ -23,7 +24,6 @@ class AdapterCurrency (
 
     override fun onBindViewHolder(holder: CurrencyViewHolder, position: Int) {
         holder.bind(getItem(position))
-        //demo
     }
 
     class CurrencyViewHolder(
@@ -31,7 +31,8 @@ class AdapterCurrency (
         private val onCurrencyClicked: OnCurrencyClicked,
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(currency: Currency) {
-            binding.nameCurrency.text = currency.name
+            binding.currency.text=currency.code
+            binding.nameCurrency.text = currency.name.attachedName()
             Glide.with(binding.currencyImage)
                 .load(currency.imageUrl)
                 .into(binding.currencyImage)

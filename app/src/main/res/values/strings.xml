@@ -3,4 +3,7 @@
     <string name="currency">BTC</string>
     <string name="name_currency">Bitcoin</string>
     <string name="imageDescription">TODO</string>
+
+    <string name="book">template book</string>
+    <string name="value">0.0000000000000000000</string>
 </resources>

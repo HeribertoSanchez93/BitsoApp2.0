@@ -6,14 +6,28 @@
     android:orientation="horizontal"
     android:padding="8dp">
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/currencyList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/AvailableBooksList"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="horizontal"
         >
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/AvailableBooksList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currencyList"
+        >
+
     </androidx.recyclerview.widget.RecyclerView>
 </androidx.constraintlayout.widget.ConstraintLayout>

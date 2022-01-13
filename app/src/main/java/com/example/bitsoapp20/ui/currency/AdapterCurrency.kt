@@ -24,6 +24,7 @@ class AdapterCurrency(
 
     override fun onBindViewHolder(holder: CurrencyViewHolder, position: Int) {
         holder.bind(getItem(position))
+        if(position==0)onCurrencyClicked.invoke(getItem(position).code)
     }
 
     class CurrencyViewHolder(
@@ -40,6 +41,7 @@ class AdapterCurrency(
             binding.linearLayoutCurrency.setOnClickListener {
                 onCurrencyClicked.invoke(currency.code)
             }
+
         }
     }
     companion object {

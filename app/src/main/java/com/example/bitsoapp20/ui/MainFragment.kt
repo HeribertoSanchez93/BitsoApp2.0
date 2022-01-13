@@ -47,6 +47,7 @@ class MainFragment:Fragment() {
 
         viewModel.callServices()
 
+
         viewModel.currencies.observe(viewLifecycleOwner,{ resources ->
             fillCurrencies(resources)
         })

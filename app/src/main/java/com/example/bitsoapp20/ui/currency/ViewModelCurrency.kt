@@ -23,8 +23,8 @@ class ViewModelCurrency @Inject constructor (
     private val _currencies: MutableLiveData<Resource<List<Currency>>> = MutableLiveData()
     var currencies: LiveData<Resource<List<Currency>>> = _currencies
 
-    private val _availableBooks: MutableLiveData<Resource<List<AvailableBook>>> = MutableLiveData()
-    var availableBooks: LiveData<Resource<List<AvailableBook>>> = _availableBooks
+    private val _availableBooks: MutableLiveData<Resource<List<AvailableBook>?>> = MutableLiveData()
+    var availableBooks: LiveData<Resource<List<AvailableBook>?>> = _availableBooks
 
     fun callServices(){
         getListOfAvailableBooks()
@@ -37,7 +37,7 @@ class ViewModelCurrency @Inject constructor (
 
             getListOfCurrencies(listAvailableBooks)
             val listData= encapsulateList(listAvailableBooks)
-            _availableBooks.postValue(listData as Resource<List<AvailableBook>>?)
+            _availableBooks.postValue(listData)
         }
     }
     private fun getListOfCurrencies(listAvailableBooks:List<AvailableBook>?) {

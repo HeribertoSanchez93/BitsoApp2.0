@@ -47,7 +47,6 @@ class MainFragment:Fragment() {
 
         viewModel.callServices()
 
-
         viewModel.currencies.observe(viewLifecycleOwner,{ resources ->
             fillCurrencies(resources)
         })
@@ -73,6 +72,9 @@ class MainFragment:Fragment() {
             }
             Resource.Status.ERROR->
                 Toast.makeText(activity, resources.message, Toast.LENGTH_SHORT).show()
+            Resource.Status.LOADING->{
+
+            }
 
         }
 
@@ -88,6 +90,9 @@ class MainFragment:Fragment() {
                 }
                 Resource.Status.ERROR->
                     Toast.makeText(activity, resources.message, Toast.LENGTH_SHORT).show()
+                Resource.Status.LOADING->{
+
+                }
             }
         })
     }

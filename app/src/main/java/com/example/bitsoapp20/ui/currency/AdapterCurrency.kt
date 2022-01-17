@@ -12,7 +12,7 @@ import com.example.bitsoapp20.util.attachedName
 
 typealias OnCurrencyClicked = (String) -> Unit
 
-class AdapterCurrency (
+class AdapterCurrency(
     private val onCurrencyClicked: OnCurrencyClicked
         ): ListAdapter<Currency, AdapterCurrency.CurrencyViewHolder>(DIFF_CALLBACK)
 {
@@ -24,6 +24,7 @@ class AdapterCurrency (
 
     override fun onBindViewHolder(holder: CurrencyViewHolder, position: Int) {
         holder.bind(getItem(position))
+        if(position==0)onCurrencyClicked.invoke(getItem(position).code)
     }
 
     class CurrencyViewHolder(
@@ -38,8 +39,9 @@ class AdapterCurrency (
                 .into(binding.currencyImage)
 
             binding.linearLayoutCurrency.setOnClickListener {
-                onCurrencyClicked.invoke(currency.name)
+                onCurrencyClicked.invoke(currency.code)
             }
+
         }
     }
     companion object {

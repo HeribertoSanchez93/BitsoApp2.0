@@ -3,6 +3,7 @@ package com.example.bitsoapp20.util
 import com.example.bitsoapp20.domain.AvailableBook
 import com.example.bitsoapp20.domain.Currency
 import com.example.bitsoapp20.domain.StatusAvailableBooks
+import java.text.DecimalFormat
 
 private const val CURRENCY_BASE_IMAGE_URL = "https://cryptoicon-api.vercel.app/api/icon/"
 
@@ -55,3 +56,4 @@ fun String.attachedName(): String = when (this) {
      "axs" -> "axs"
      else -> this
 }
+fun Double.reformatNumber(): String = DecimalFormat("#.################$").format(this)

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linearLayoutCurrency"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:id="@+id/linearLayoutCurrency"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/customborder">
+    android:background="@drawable/customborder"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,19 +17,20 @@
             android:id="@+id/currencyImage"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:contentDescription="@string/imageDescription"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/imageDescription"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/currency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:text="@string/currency"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/black"
+            android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@id/currencyImage"
-            app:layout_constraintTop_toBottomOf="@id/currencyImage"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/currencyImage" />
 
         <TextView
             android:id="@+id/nameCurrency"
@@ -38,6 +39,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/name_currency"
             android:textColor="@color/black"
+            android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@id/currencyImage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/currency" />

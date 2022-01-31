@@ -6,4 +6,5 @@
 
     <string name="book">template book</string>
     <string name="value">0.0000000000000000000</string>
+    <dimen name="Textsize">16sp</dimen>
 </resources>

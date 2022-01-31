@@ -56,4 +56,4 @@ fun String.attachedName(): String = when (this) {
      "axs" -> "axs"
      else -> this
 }
-fun Double.reformatNumber(): String = DecimalFormat("#.################$").format(this)
+fun Double.reformatNumber(): String = DecimalFormat("#.################ $").format(this)

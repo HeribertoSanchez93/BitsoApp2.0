@@ -1,22 +1,29 @@
 package com.example.bitsoapp20.ui
 
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.bitsoapp20.R
 import com.example.bitsoapp20.databinding.MainFragmentBinding
 import com.example.bitsoapp20.domain.AvailableBook
 import com.example.bitsoapp20.domain.Currency
 import com.example.bitsoapp20.ui.availableBooks.AdapterAvailableBooks
 import com.example.bitsoapp20.ui.currency.AdapterCurrency
 import com.example.bitsoapp20.ui.currency.ViewModelCurrency
+import com.example.bitsoapp20.util.MarginItemDecoration
 import com.example.bitsoapp20.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
+private const val VIEW_HOLDER_SCREEN_PROPORTION = 1.0 / 2.0
 @AndroidEntryPoint
 class MainFragment:Fragment() {
     private var _binding: MainFragmentBinding? = null
@@ -53,9 +60,11 @@ class MainFragment:Fragment() {
 
         binding.AvailableBooksList.run {
             adapter=adapterAvailableBook
-            layoutManager= object : LinearLayoutManager(requireContext()) {
+            layoutManager= object : GridLayoutManager(requireContext(),2) {
 
             }
+            addItemDecoration( MarginItemDecoration(resources.getDimensionPixelSize(R.dimen.margin)))
+
         }
     }
 
@@ -65,6 +74,8 @@ class MainFragment:Fragment() {
             layoutManager= object : LinearLayoutManager(requireContext(),HORIZONTAL,false) {
 
             }
+
+
         }
         when(resources.status){
             Resource.Status.SUCCESS->{

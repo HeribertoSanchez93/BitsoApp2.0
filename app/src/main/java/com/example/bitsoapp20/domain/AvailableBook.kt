@@ -1,5 +1,8 @@
 package com.example.bitsoapp20.domain
 
+import androidx.room.Entity
+import androidx.room.Index
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -10,12 +13,12 @@ data class StatusAvailableBooks(
     @Json(name = "payload") val payload: List<AvailableBook>,
 )
 
-//@Entity(indices = [Index(value = ["book"], unique = true)])
+@Entity(indices = [Index(value = ["book"], unique = true)])
 @JsonClass(generateAdapter = true)
 data class AvailableBook(
 
-    //@PrimaryKey(autoGenerate = true)
-    val id: Int? = null,
+    @PrimaryKey(autoGenerate = true)
+    val idAvailableBook: Int? = null,
     @Json(name = "book") val book: String,
     @Json(name = "minimum_price") val minimum_price: Double,
     @Json(name = "maximum_price") val maximum_price: Double,
@@ -25,7 +28,7 @@ data class AvailableBook(
     @Json(name = "maximum_value") val maximum_value: Double,
     @Json(name = "tick_size") val tick_size: Double,
     @Json(name = "default_chart") val default_chart: String,
-    @Json(name = "fees") val fees : Fees ,
+    @Json(name = "fees") val fees : Fees,
 )
 
 @JsonClass(generateAdapter = true)

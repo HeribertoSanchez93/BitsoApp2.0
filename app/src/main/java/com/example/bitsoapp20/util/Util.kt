@@ -11,8 +11,14 @@ suspend  fun <T> performGetOperation(networkCall: suspend () -> Resource<T>): Re
      return networkCall.invoke()
 }
 
-suspend  fun <T> performGetOperation2(networkCall: suspend () -> T): T{
-     return networkCall.invoke()
+suspend  fun <T,A> performGetOperation2(networkCall: suspend () -> T,databaseQuery: suspend () -> A,saveCallResult: suspend (T) -> Unit): A{
+     val source = databaseQuery.invoke()
+     val response= networkCall.invoke()
+     if (response != null) {
+          saveCallResult(response)
+     }
+     return source
+
 }
 
 fun StatusAvailableBooks.filterData(code: String?): List<AvailableBook> {
